@@ -3,6 +3,9 @@
 
 OutStar was developed in 2014. Its like Minecraft with integrated Voxel Sculting Editor to create new Blocks in 3D. The scene is rendered by a mix of triangles (OpenGL) and voxel raycasting (OpenCV).
 
+![OutStar.VoxelGame](https://github.com/sp4cerat/OutStar.VoxelGame/blob/master/screenshots/title.png?raw=true)
+
+
 ### Usage:
 
 F1 Screenshot
