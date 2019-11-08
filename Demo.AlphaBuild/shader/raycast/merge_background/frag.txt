@@ -1,0 +1,44 @@
+#version 150
+
+uniform sampler2D texVoxel; 
+uniform sampler2D texVoxelZ; 
+
+uniform sampler2D texBg; 
+uniform sampler2D texBgZ; 
+
+varying vec2 tex_uv;
+
+void main(void)
+{
+	vec4 tex_bg   = texture2D(texBg    ,tex_uv.xy) ;	
+	float tex_bgz = texture2D(texBgZ   ,tex_uv.xy).x ;	
+	vec4 tex_v    = texture2D(texVoxel ,tex_uv.xy) ;	
+	float tex_vz  = dot(texture2D(texVoxelZ,tex_uv.xy),vec4(1.0/65536.0,1.0/256.0,1.0,256.0)) ;	
+
+	float voxel_w = 0.75-1.0/(tex_vz*8.0*8192.0);
+	
+	if(tex_v.w>1.0/255.0)
+		{
+			tex_v=tex_bg;
+			tex_bgz=1.0/((-tex_bgz+0.75)*8.0*8192.0);;
+		}
+	else
+	{
+		if(voxel_w > tex_bgz && tex_bgz<=0.75)	//if(tex_vz*1.0*8.0>(1.0/8192.0)/(0.75-tex_bgz) && tex_bgz<=0.75)
+		{
+			tex_v=tex_bg;
+			//gl_FragDepth=voxel_w;
+			tex_bgz=1.0/((-tex_bgz+0.75)*8.0*8192.0);;
+		}
+		else
+			tex_bgz=tex_vz;
+
+		
+	}
+	tex_v=mix( tex_v, vec4(201.0/255.0,224.0/255.0,245.0/255.0,1),clamp(tex_bgz*0.5,0,0.85));
+
+	tex_v.a=1.0;
+	gl_FragColor =tex_v;
+	gl_FragDepth= tex_bgz;//1.0/((-tex_bgz+0.75)/(8.0*8192.0));
+
+}

@@ -1,0 +1,7 @@
+#version 330 core
+
+layout(location = 0, index = 0) out vec4 fragColor;
+
+in float geo_out;
+
+void main(void) { fragColor = vec4(geo_out,geo_out,geo_out,1.0); }

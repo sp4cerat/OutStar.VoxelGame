@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Main">
+      <UniqueIdentifier>{6f8fac40-4325-4561-aa61-b066f828773e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext">
+      <UniqueIdentifier>{373f9713-bf5f-4ee1-95ea-d623df52ea44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\ui">
+      <UniqueIdentifier>{b6d3bebb-ee25-4a43-940d-67289bfc8705}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\gl">
+      <UniqueIdentifier>{933f5063-f62b-407d-a5fe-72e1f9ba12ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\error">
+      <UniqueIdentifier>{0dd02c97-3e9f-43d9-bd3d-9b5acc7eaa08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="octree">
+      <UniqueIdentifier>{2c0a546c-871b-47f8-af6b-0aea432af447}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel">
+      <UniqueIdentifier>{739d3225-47fc-4c55-b807-0abe38791f6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader">
+      <UniqueIdentifier>{8658b44a-0512-4b46-a1b2-c6583d22691e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="editor">
+      <UniqueIdentifier>{437efad5-7be7-4ed6-a4c4-ea88ad7dbf31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\zip">
+      <UniqueIdentifier>{7f519aec-b2e4-42be-9a54-c3c9ed4f52a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\raycast">
+      <UniqueIdentifier>{492e82f9-ab5f-48a8-8fda-3f0add5ec8de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\raycast\merge_background">
+      <UniqueIdentifier>{8300bc7a-e091-414a-a2b7-d2a877282077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\editor">
+      <UniqueIdentifier>{30048a55-c32a-4330-a319-312286bfd742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\editor\voxel">
+      <UniqueIdentifier>{ed894c3f-bb64-4c09-8a81-91fa073775de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\editor\ssao">
+      <UniqueIdentifier>{a1f3888d-754e-4e69-b5bf-6a9d26049fd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\terrain">
+      <UniqueIdentifier>{31d9b719-1b79-44d8-ad18-481b45d99ada}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\matlib">
+      <UniqueIdentifier>{b4b99163-9641-4925-a627-38fe1d0cc8a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\xml">
+      <UniqueIdentifier>{0eb0f49d-39e0-4748-90de-408ffa15bfdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\mesh">
+      <UniqueIdentifier>{fa138f91-f6ab-4353-aa90-d50dbb41fa01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\raycast\fxaa">
+      <UniqueIdentifier>{aa748fd6-ab21-4627-81c1-75aaa2c1a872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="world">
+      <UniqueIdentifier>{4e887e51-ad41-47ee-b08a-f840420096c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\raycast\ssao">
+      <UniqueIdentifier>{ebd832d3-9b47-416c-bcaf-7b6dd4de6af8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\enet">
+      <UniqueIdentifier>{f3b74775-ffe8-4693-8364-b864f513bc35}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\nvwidgets\nvGlutWidgets.cpp">
+      <Filter>ext\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\nvwidgets\nvWidgets.cpp">
+      <Filter>ext\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\nvwidgets\nvGLWidgets.cpp">
+      <Filter>ext\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\glew.cpp">
+      <Filter>ext\gl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\stackwalker\StackWalker.cpp">
+      <Filter>ext\error</Filter>
+    </ClCompile>
+    <ClCompile Include="Bmp.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\zip\miniz.c">
+      <Filter>ext\zip</Filter>
+    </ClCompile>
+    <ClCompile Include="core.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\xml\tinystr.cpp">
+      <Filter>ext\xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\xml\tinyxml.cpp">
+      <Filter>ext\xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\xml\tinyxmlerror.cpp">
+      <Filter>ext\xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\xml\tinyxmlparser.cpp">
+      <Filter>ext\xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\enet\callbacks.c">
+      <Filter>ext\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\enet\compress.c">
+      <Filter>ext\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\enet\host.c">
+      <Filter>ext\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\enet\list.c">
+      <Filter>ext\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\enet\packet.c">
+      <Filter>ext\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\enet\peer.c">
+      <Filter>ext\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\enet\protocol.c">
+      <Filter>ext\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\enet\win32.c">
+      <Filter>ext\enet</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ui.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="libs.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ocl.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ogl.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="error.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="file.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\stackwalker\StackWalker.h">
+      <Filter>ext\error</Filter>
+    </ClInclude>
+    <ClInclude Include="octree\Octree.h">
+      <Filter>octree</Filter>
+    </ClInclude>
+    <ClInclude Include="octree\Rle4.h">
+      <Filter>octree</Filter>
+    </ClInclude>
+    <ClInclude Include="Bmp.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="bvh.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="octree\Tree.h">
+      <Filter>octree</Filter>
+    </ClInclude>
+    <ClInclude Include="core.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="voxeledit.h">
+      <Filter>editor</Filter>
+    </ClInclude>
+    <ClInclude Include="win.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="voxeledit_mc.h">
+      <Filter>editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\zip\miniz.h">
+      <Filter>ext\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="fbo.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="glsl.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="voxeledit_terrain.h">
+      <Filter>editor</Filter>
+    </ClInclude>
+    <ClInclude Include="voxeledit_ui.h">
+      <Filter>editor</Filter>
+    </ClInclude>
+    <ClInclude Include="voxeledit_file.h">
+      <Filter>editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\_matrix33.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\_matrix33_sse.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\_matrix44.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\_matrix44_sse.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\_vector2.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\_vector3.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\_vector3_sse.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\_vector4.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\_vector4_sse.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\bbox.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\envelopecurve.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\euler.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\eulerangles.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\line.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\matrix.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\matrixdefs.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\nmath.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\noise.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\ntypes.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\pknorm.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\plane.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\polar.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\quaternion.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\rectangle.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\sphere.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\transform33.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\transform44.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\triangle.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\vector.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\mathlib\vector3envelopecurve.h">
+      <Filter>ext\matlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\xml\tinystr.h">
+      <Filter>ext\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\xml\tinyxml.h">
+      <Filter>ext\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshAnimation.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="Volume.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="world.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="raycast.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="skybox.h">
+      <Filter>world</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\kernel\kernel.cl">
+      <Filter>Kernel</Filter>
+    </None>
+    <None Include="..\todo.txt" />
+    <None Include="..\shader\raycast\merge_background\vs.txt">
+      <Filter>shader\raycast\merge_background</Filter>
+    </None>
+    <None Include="..\shader\raycast\merge_background\frag.txt">
+      <Filter>shader\raycast\merge_background</Filter>
+    </None>
+    <None Include="..\shader\editor\voxel\frag.txt">
+      <Filter>shader\editor\voxel</Filter>
+    </None>
+    <None Include="..\shader\editor\voxel\vs.txt">
+      <Filter>shader\editor\voxel</Filter>
+    </None>
+    <None Include="..\shader\terrain\frag.txt">
+      <Filter>shader\terrain</Filter>
+    </None>
+    <None Include="..\shader\terrain\vs.txt">
+      <Filter>shader\terrain</Filter>
+    </None>
+    <None Include="..\ext\mathlib\ntypes.h~">
+      <Filter>ext\matlib</Filter>
+    </None>
+    <None Include="..\shader\editor\ssao\frag.txt">
+      <Filter>shader\editor\ssao</Filter>
+    </None>
+    <None Include="..\shader\editor\ssao\vs.txt">
+      <Filter>shader\editor\ssao</Filter>
+    </None>
+    <None Include="..\shader\raycast\fxaa\frag.txt">
+      <Filter>shader\raycast\fxaa</Filter>
+    </None>
+    <None Include="..\shader\raycast\fxaa\vs.txt">
+      <Filter>shader\raycast\fxaa</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\shader\mesh\frag.txt">
+      <Filter>shader\mesh</Filter>
+    </Text>
+    <Text Include="..\shader\mesh\vs.txt">
+      <Filter>shader\mesh</Filter>
+    </Text>
+    <Text Include="..\shader\raycast\ssao\frag.txt">
+      <Filter>shader\raycast\ssao</Filter>
+    </Text>
+    <Text Include="..\shader\raycast\ssao\vs.txt">
+      <Filter>shader\raycast\ssao</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+#version 410 core
+
+layout(location = 0, index = 0) out vec4 fragColor;
+
+in vec4 color_gs;
+
+void main(void)
+{
+	fragColor = 0.1*color_gs+vec4(1,1,1,0);
+}

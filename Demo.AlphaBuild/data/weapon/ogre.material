@@ -1,0 +1,77 @@
+material blinn3
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 1 1 1 1
+			specular 1 1 1 86.0928
+			emissive 0 0 0
+
+			texture_unit
+			{
+				texture sky.jpg
+				texture_bump bumplines2.jpg				
+				tex_coord_set 0
+				colour_op modulate
+				scale 1 1
+				scroll 0 0
+				rotate 0
+				env_map spherical
+			}
+		}
+	}
+}
+material blinn4
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 1 1 1 1
+			specular 0.99116 0.99116 0.99116 105.344
+			emissive 0 0 0
+
+			texture_unit
+			{
+				texture weapon.glass.jpg
+				tex_coord_set 0
+				colour_op modulate
+				scale 1 1
+				scroll 0 0
+				rotate 0
+			}
+		}
+	}
+}
+material lambert1
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.985 1 0.993102 1
+			diffuse 1 0.999567 0.764 0.42478
+			specular 0 0 0 1
+			emissive 0 0 0
+
+			scene_blend alpha_blend
+			depth_write off
+		}
+	}
+}
+material lambert3
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0 0 0 1
+			specular 0 0 0 1
+			emissive 0 0 0
+		}
+	}
+}

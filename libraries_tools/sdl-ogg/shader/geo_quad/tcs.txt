@@ -1,0 +1,99 @@
+#version 410 core
+
+layout(vertices = 4) out;
+
+uniform sampler2D geomap;
+uniform mat4 mvp_matrix;
+uniform float cull_invert;
+uniform float importance;
+
+
+vec4 project(vec4 vertex)
+{
+	vec4 pos=texture2D(geomap,vertex.xy);
+	vec4 result = mvp_matrix*pos;
+    return result;
+}
+
+float level(float w)//float d)
+{
+	//return clamp(importance * 0.5 * pow(w,0.75)*4*8.0, 1, 32);
+	return clamp(pow(w,0.5)*importance*4*8.0, 1, 32);
+	//return clamp(w*8*8.0, 1, 8);
+	//return clamp((50.0-w)*8.0/50.0, 1, 8);
+}
+
+void main(void)
+{
+	gl_out[gl_InvocationID].gl_Position = gl_in[gl_InvocationID].gl_Position;
+/*
+	{
+             gl_TessLevelInner[0] = 1;
+             gl_TessLevelInner[1] = 1;
+             gl_TessLevelOuter[0] = 1;
+             gl_TessLevelOuter[1] = 1;
+             gl_TessLevelOuter[2] = 1;
+             gl_TessLevelOuter[3] = 1;
+	}
+	*/
+	
+	
+	
+
+
+	if(gl_InvocationID == 0)
+	{
+         vec4 v0 = project(gl_in[0].gl_Position);
+         vec4 v1 = project(gl_in[1].gl_Position);
+         vec4 v2 = project(gl_in[2].gl_Position);
+         vec4 v3 = project(gl_in[3].gl_Position);
+		 
+		 bool cull=false;
+
+
+		 v0.xyz/=v0.w;
+		 v1.xyz/=v1.w;
+		 v2.xyz/=v2.w;
+		 v3.xyz/=v3.w;
+
+		 //if (v0.w < 0.0) cull=true;
+
+		 if ( max(v0.w,max(v1.w,max(v2.w,v3.w))) < -0.3 ) cull=true;
+		 
+		 //if ( min(v0.z,min(v1.z,min(v2.z,v3.z))) >  1.0 ) cull=true;
+
+		 bool all_in_front = ( max(v0.z,max(v1.z,max(v2.z,v3.z))) <  1.0 );
+		 if (all_in_front)
+		 {
+			 if ( max(v0.x,max(v1.x,max(v2.x,v3.x))) < -1.4 ) cull=true;
+			 if ( max(v0.y,max(v1.y,max(v2.y,v3.y))) < -1.4 ) cull=true;
+			 if ( min(v0.x,min(v1.x,min(v2.x,v3.x))) >  1.4 ) cull=true;
+			 if ( min(v0.y,min(v1.y,min(v2.y,v3.y))) >  1.4 ) cull=true;
+		 }
+		 
+		 if(cull)
+		 {
+             gl_TessLevelInner[0] =  1;
+             gl_TessLevelInner[1] =  1;
+             gl_TessLevelOuter[0] =  1;
+             gl_TessLevelOuter[1] =  1;
+             gl_TessLevelOuter[2] =  1;
+             gl_TessLevelOuter[3] =  1;
+         }
+		 else
+		 {
+			 float detail0 = level(length(v1.xy-v0.xy));
+			 float detail1 = level(length(v2.xy-v3.xy));
+			 float detail2 = level(length(v2.xy-v1.xy));
+			 float detail3 = level(length(v3.xy-v0.xy));
+			 float detail01= (detail0+detail1)*0.5;
+			 float detail12= (detail2+detail3)*0.5;
+             gl_TessLevelInner[0] = detail01;
+             gl_TessLevelInner[1] = detail12;
+             gl_TessLevelOuter[0] = detail3;
+             gl_TessLevelOuter[1] = detail0;
+             gl_TessLevelOuter[2] = detail2;
+             gl_TessLevelOuter[3] = detail1;
+         }
+     }
+}

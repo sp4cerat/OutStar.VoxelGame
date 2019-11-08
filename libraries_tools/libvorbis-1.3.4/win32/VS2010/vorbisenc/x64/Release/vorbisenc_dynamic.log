@@ -1,0 +1,7 @@
+﻿  encoder_example.c
+..\..\..\examples\encoder_example.c(128): warning C4305: 'function' : truncation from 'double' to 'float'
+..\..\..\examples\encoder_example.c(147): warning C4244: 'function' : conversion from 'time_t' to 'unsigned int', possible loss of data
+..\..\..\examples\encoder_example.c(182): warning C4267: 'initializing' : conversion from 'size_t' to 'long', possible loss of data
+  Generating code
+  Finished generating code
+  vorbisenc_dynamic.vcxproj -> C:\Users\Spacerat\Desktop\GAME_VoxelMaster_Terrain\EXT_compile\libvorbis-1.3.4\win32\VS2010\x64\Release\vorbisenc.exe

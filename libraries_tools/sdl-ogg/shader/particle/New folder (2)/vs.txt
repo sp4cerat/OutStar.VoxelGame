@@ -1,0 +1,11 @@
+#version 330 core
+
+in vec4 gl_Vertex;
+in vec4 vertex;
+out vec4 vs_out;
+
+void main(void)
+{
+	vs_out=vertex;
+	gl_Position = vertex;//gl_Vertex;
+}

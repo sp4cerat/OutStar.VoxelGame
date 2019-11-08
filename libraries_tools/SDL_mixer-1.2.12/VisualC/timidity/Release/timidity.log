@@ -1,0 +1,16 @@
+﻿  common.c
+  ctrlmode.c
+  filter.c
+  instrum.c
+..\..\timidity\instrum.c(558): warning C4244: '=' : conversion from 'uint16' to 'uint8', possible loss of data
+  mix.c
+  output.c
+  playmidi.c
+  readmidi.c
+  resample.c
+  sdl_a.c
+  sdl_c.c
+  tables.c
+  timidity.c
+  Generating Code...
+  timidity.vcxproj -> C:\code\SDL\SDL_LIBs\SDL_mixer-1.2.12\VisualC\timidity\.\Release\timidity.lib

@@ -1,0 +1,35 @@
+﻿  dynamic_flac.c
+  dynamic_fluidsynth.c
+  dynamic_mod.c
+  dynamic_mp3.c
+  dynamic_ogg.c
+  effect_position.c
+  effect_stereoreverse.c
+  effects_internal.c
+  fluidsynth.c
+  load_aiff.c
+  load_flac.c
+..\load_flac.c(86): warning C4244: 'function' : conversion from 'FLAC__uint64' to 'int', possible loss of data
+..\load_flac.c(234): warning C4244: '=' : conversion from 'FLAC__uint64' to 'Uint32', possible loss of data
+  load_ogg.c
+  load_voc.c
+  mixer.c
+..\mixer.c(129): warning C4090: 'function' : different 'const' qualifiers
+..\mixer.c(1143): warning C4090: 'function' : different 'const' qualifiers
+  music.c
+..\music.c(166): warning C4090: 'function' : different 'const' qualifiers
+..\music.c(625): warning C4047: 'return' : 'Mix_Music *' differs in levels of indirection from 'int'
+..\music.c(1529): warning C4090: 'function' : different 'const' qualifiers
+  music_cmd.c
+  music_flac.c
+..\music_flac.c(87): warning C4244: 'function' : conversion from 'FLAC__uint64' to 'int', possible loss of data
+..\music_flac.c(421): warning C4018: '>' : signed/unsigned mismatch
+  music_mad.c
+  music_mod.c
+  music_ogg.c
+  Generating Code...
+  Compiling...
+  wavestream.c
+  Generating Code...
+LINK : warning LNK4068: /MACHINE not specified; defaulting to X86
+  SDL_mixer.vcxproj -> C:\code\SDL\SDL_LIBs\SDL_mixer-1.2.12\VisualC\.\Release\SDL_mixer.lib

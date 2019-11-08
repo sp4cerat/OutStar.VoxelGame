@@ -1,0 +1,19 @@
+material lambert1
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.0 0.0 0.0 1
+			diffuse 1.8 1.8 1.8 1
+
+			texture_unit
+			{
+				texture moonmap.jpg
+				texture_bump moonbumpmap2.jpg
+			}
+		}
+
+	}
+
+}

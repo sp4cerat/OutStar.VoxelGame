@@ -1,0 +1,39 @@
+uniform sampler3D volumetexture;
+varying vec3 texCoord;
+varying vec3 vertex;
+uniform float insideCube;
+
+uniform vec3 xform0;
+uniform vec3 xform1;
+uniform vec3 xform2;
+
+void main(void)
+{
+	vec3 delta= vertex;
+	vec3 dir ;
+	dir.x= dot(xform0,delta);
+	dir.y= dot(xform1,delta);
+	dir.z= dot(xform2,delta);
+
+	vec3 pos=texCoord+vec3(0.5,0.5,0.5);
+	if(insideCube>0.0) pos -= dir;
+	dir=normalize(dir);
+
+	float a=0;
+	do
+	{
+		a+=texture3D(volumetexture,pos.xyz).x*1.0/30.0; 
+		pos+=dir*1.0/35.0;
+
+		if(a>=1.0)break;
+		if(pos.x<0.0)break;
+		if(pos.y<0.0)break;
+		if(pos.z<0.0)break;
+	}
+	while(pos.x<1.0 && pos.y<1.0 && pos.z<1.0 );
+
+	a=min(1.0,a);
+
+	gl_FragColor.xyz = vec3(1.0,1.0,1.0);
+	gl_FragColor.w=a;
+}

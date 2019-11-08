@@ -1,0 +1,12 @@
+#version 120
+
+//#version 410 core
+//out vec2 vs_texcoord;
+varying vec2 vs_texcoord;
+
+void main(void)
+{
+	gl_Position = gl_Vertex;
+	//vs_color    = gl_Color;
+	vs_texcoord = gl_MultiTexCoord0.xy;
+}

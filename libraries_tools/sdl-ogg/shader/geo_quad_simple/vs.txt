@@ -1,0 +1,14 @@
+#version 410 core
+
+uniform sampler2D geomap;
+uniform mat4 mvp_matrix;
+
+in vec4 vertex;
+out vec2 tex_uv;
+
+
+void main(void)
+{
+	tex_uv = vertex.xy;
+	gl_Position = mvp_matrix*texture2D(geomap,vertex.xy);
+}

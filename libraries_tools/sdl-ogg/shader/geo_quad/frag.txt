@@ -1,0 +1,54 @@
+#version 410 core
+
+layout(location = 0, index = 0) out vec4 fragColor;
+
+uniform sampler2D normalmap;
+uniform sampler2D colormap;
+uniform vec3 tex_scale;
+in vec2 tex_uv;
+
+vec4 bspline_3d_fp( sampler2D texin, vec2 vecin)
+{
+	vec2 tsize = vec2(512.0,512.0);
+	vec2 one_tsize = vec2(1.0/tsize.x,1.0/tsize.y);
+	vec2 coord_grid = vecin*tsize - vec2(0.5,0.5);
+	vec2 fraction = fract(coord_grid);
+	vec2 one_frac = 1.0 - fraction;
+	vec2 one_frac2 = one_frac * one_frac;
+	vec2 fraction2 = fraction * fraction;
+	vec2 w0 = 1.0/6.0 * one_frac2 * one_frac;
+	vec2 w1 = 2.0/3.0 - 0.5 * fraction2 * (2.0-fraction);
+	vec2 w2 = 2.0/3.0 - 0.5 * one_frac2 * (2.0-one_frac);
+	vec2 w3 = 1.0/6.0 * fraction2 * fraction;
+	vec2 g0 = w0 + w1;
+	vec2 g1 = w2 + w3;
+	vec2 index = coord_grid-fraction;
+	vec2 h0 = ((w1 / g0) - 0.5 + index)*one_tsize;
+	vec2 h1 = ((w3 / g1) + 1.5 + index)*one_tsize;
+
+	// fetch the four linear interpolations
+	vec4 tex000 = texture2D(texin, vec2(h0.x, h0.y));
+	vec4 tex001 = texture2D(texin, vec2(h0.x, h1.y));
+	tex000 = mix(tex001, tex000, g0.y);
+	vec4 tex010 = texture2D(texin, vec2(h1.x, h0.y));
+	vec4 tex011 = texture2D(texin, vec2(h1.x, h1.y));
+	tex010 = mix(tex011, tex010, g0.y);
+
+	tex000 = mix(tex010, tex000, g0.x);
+	
+	return tex000;
+}
+
+void main(void)
+{
+	vec4 c1=texture2D(colormap,tex_uv.xy*tex_scale.xy);
+	vec4 c2=texture2D(colormap,tex_uv.xy*tex_scale.xy*tex_scale.z);
+	vec4 c=(c1+c2)*0.5;
+	
+	if(c1.w<=0.1) discard;
+
+	vec4 n=		texture2D(normalmap,tex_uv.xy);
+
+	fragColor = c*((-n.x-2*n.y+1)*0.3+0.2);//vec4(1.0, 0.0, 0.0, 1.0);
+}
+	//vec4 c=	bspline_3d_fp(colormap,tex_uv.xy);

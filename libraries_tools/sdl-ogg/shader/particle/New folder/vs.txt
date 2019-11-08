@@ -1,0 +1,13 @@
+#version 330 core
+
+//uniform mat4 projectionMatrix;
+//uniform mat4 modelViewMatrix;
+
+in  ivec4 gl_Vertex;
+out ivec4 vs_out;
+
+void main(void)
+{
+	vs_out=gl_Vertex;
+	gl_Position = vec4(1.0,1.0,1.0,1.0);
+}

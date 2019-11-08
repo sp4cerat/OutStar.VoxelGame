@@ -1,0 +1,45 @@
+#version 110 
+
+uniform sampler2D texDiffuse; 
+uniform sampler2D texAmbient; 
+uniform sampler2D texBump; 
+
+uniform vec3 lightPos;
+uniform vec4 ambient;
+uniform vec4 diffuse;
+uniform vec4 specular;
+uniform vec4 lightvec; // light direction
+
+uniform float dif_envmap;
+
+varying vec3 normal;
+varying vec3 vertex;
+varying vec3 tex_uv;
+varying vec3 tex_tan;//tangent vector
+varying vec3 tex_cotan;//cotangent vector
+
+void main(void)
+{
+    vec3 camPos=vec3(0.0,0.0,0.0);
+    vec3 lightVec = lightvec.xyz;//*0.001+vec3(0.0,1.0,0.0);
+    vec3 camVec   = normalize(camPos-vertex) ;
+
+	// bump mapping from normal map
+	vec3 bump=(vec3(-1.0,-1.0,-1.0)+2.0*texture2D(texBump,tex_uv.xy).xyz) ;
+	vec3 n=normalize(vec3(
+		bump.z*normal.x+bump.x*tex_tan.x+bump.y*tex_cotan.x,
+		bump.z*normal.y+bump.x*tex_tan.y+bump.y*tex_cotan.y,
+		bump.z*normal.z+bump.x*tex_tan.z+bump.y*tex_cotan.z	)); 
+	
+	// common light
+	vec4 dif = diffuse * texture2D(texDiffuse,tex_uv.xy*(1.0-dif_envmap)+(-n.xy*0.5+vec2(0.5+lightvec.w,0.5))*dif_envmap) ;
+	vec4 amb = ambient * texture2D(texAmbient,tex_uv.xy) ;
+    float l = clamp ( dot ( lightVec , n ) ,0.0,1.0 );
+    vec3  r = reflect ( -camVec, n );
+    float m = clamp ( dot ( r , lightVec ) ,0.0,1.0);
+    float q = pow(m,10.0);
+        
+	// final color
+    gl_FragColor = clamp( dif * l + amb + specular * q , 0.0 , 1.0);
+    gl_FragColor.w=1.0;
+}

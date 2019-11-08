@@ -1,0 +1,27 @@
+﻿  IMG.c
+  IMG_bmp.c
+  IMG_gif.c
+..\IMG_gif.c(340): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+  IMG_jpg.c
+  IMG_lbm.c
+  IMG_pcx.c
+  IMG_png.c
+..\IMG_png.c(332): warning C4267: 'function' : conversion from 'size_t' to 'int', possible loss of data
+  IMG_pnm.c
+  IMG_tga.c
+  IMG_tif.c
+..\IMG_tif.c(139): warning C4244: 'function' : conversion from 'toff_t' to 'int', possible loss of data
+  IMG_webp.c
+  IMG_xcf.c
+  IMG_xpm.c
+..\IMG_xpm.c(357): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(325) : see declaration of 'sscanf'
+..\IMG_xpm.c(419): warning C4244: 'function' : conversion from '__int64' to 'int', possible loss of data
+  IMG_xv.c
+..\IMG_xv.c(72): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(325) : see declaration of 'sscanf'
+  IMG_xxx.c
+  Generating Code...
+     Creating library x64\Release\SDL_image.lib and object x64\Release\SDL_image.exp
+  SDL_image.vcxproj -> C:\code\SDL\SDL_LIBs\SDL_image-1.2.12\VisualC\x64\Release\SDL_image.dll

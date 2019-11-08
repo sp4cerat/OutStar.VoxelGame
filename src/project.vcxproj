@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ext\enet\callbacks.c" />
+    <ClCompile Include="..\ext\enet\compress.c" />
+    <ClCompile Include="..\ext\enet\host.c" />
+    <ClCompile Include="..\ext\enet\list.c" />
+    <ClCompile Include="..\ext\enet\packet.c" />
+    <ClCompile Include="..\ext\enet\peer.c" />
+    <ClCompile Include="..\ext\enet\protocol.c" />
+    <ClCompile Include="..\ext\enet\win32.c" />
+    <ClCompile Include="..\ext\glew.cpp" />
+    <ClCompile Include="..\ext\nvwidgets\nvGlutWidgets.cpp" />
+    <ClCompile Include="..\ext\nvwidgets\nvGLWidgets.cpp" />
+    <ClCompile Include="..\ext\nvwidgets\nvWidgets.cpp" />
+    <ClCompile Include="..\ext\stackwalker\StackWalker.cpp" />
+    <ClCompile Include="..\ext\xml\tinystr.cpp" />
+    <ClCompile Include="..\ext\xml\tinyxml.cpp" />
+    <ClCompile Include="..\ext\xml\tinyxmlerror.cpp" />
+    <ClCompile Include="..\ext\xml\tinyxmlparser.cpp" />
+    <ClCompile Include="..\ext\zip\miniz.c" />
+    <ClCompile Include="Bmp.cpp" />
+    <ClCompile Include="core.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ext\mathlib\bbox.h" />
+    <ClInclude Include="..\ext\mathlib\envelopecurve.h" />
+    <ClInclude Include="..\ext\mathlib\euler.h" />
+    <ClInclude Include="..\ext\mathlib\eulerangles.h" />
+    <ClInclude Include="..\ext\mathlib\line.h" />
+    <ClInclude Include="..\ext\mathlib\matrix.h" />
+    <ClInclude Include="..\ext\mathlib\matrixdefs.h" />
+    <ClInclude Include="..\ext\mathlib\nmath.h" />
+    <ClInclude Include="..\ext\mathlib\noise.h" />
+    <ClInclude Include="..\ext\mathlib\ntypes.h" />
+    <ClInclude Include="..\ext\mathlib\pknorm.h" />
+    <ClInclude Include="..\ext\mathlib\plane.h" />
+    <ClInclude Include="..\ext\mathlib\polar.h" />
+    <ClInclude Include="..\ext\mathlib\quaternion.h" />
+    <ClInclude Include="..\ext\mathlib\rectangle.h" />
+    <ClInclude Include="..\ext\mathlib\sphere.h" />
+    <ClInclude Include="..\ext\mathlib\transform33.h" />
+    <ClInclude Include="..\ext\mathlib\transform44.h" />
+    <ClInclude Include="..\ext\mathlib\triangle.h" />
+    <ClInclude Include="..\ext\mathlib\vector.h" />
+    <ClInclude Include="..\ext\mathlib\vector3envelopecurve.h" />
+    <ClInclude Include="..\ext\mathlib\_matrix33.h" />
+    <ClInclude Include="..\ext\mathlib\_matrix33_sse.h" />
+    <ClInclude Include="..\ext\mathlib\_matrix44.h" />
+    <ClInclude Include="..\ext\mathlib\_matrix44_sse.h" />
+    <ClInclude Include="..\ext\mathlib\_vector2.h" />
+    <ClInclude Include="..\ext\mathlib\_vector3.h" />
+    <ClInclude Include="..\ext\mathlib\_vector3_sse.h" />
+    <ClInclude Include="..\ext\mathlib\_vector4.h" />
+    <ClInclude Include="..\ext\mathlib\_vector4_sse.h" />
+    <ClInclude Include="..\ext\stackwalker\StackWalker.h" />
+    <ClInclude Include="..\ext\xml\tinystr.h" />
+    <ClInclude Include="..\ext\xml\tinyxml.h" />
+    <ClInclude Include="..\ext\zip\miniz.h" />
+    <ClInclude Include="Bmp.h" />
+    <ClInclude Include="bvh.h" />
+    <ClInclude Include="core.h" />
+    <ClInclude Include="error.h" />
+    <ClInclude Include="fbo.h" />
+    <ClInclude Include="file.h" />
+    <ClInclude Include="glsl.h" />
+    <ClInclude Include="libs.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="MeshAnimation.h" />
+    <ClInclude Include="ocl.h" />
+    <ClInclude Include="octree\Octree.h" />
+    <ClInclude Include="octree\Rle4.h" />
+    <ClInclude Include="octree\Tree.h" />
+    <ClInclude Include="ogl.h" />
+    <ClInclude Include="raycast.h" />
+    <ClInclude Include="skybox.h" />
+    <ClInclude Include="world.h" />
+    <ClInclude Include="Terrain.h" />
+    <ClInclude Include="ui.h" />
+    <ClInclude Include="Volume.h" />
+    <ClInclude Include="voxeledit.h" />
+    <ClInclude Include="voxeledit_file.h" />
+    <ClInclude Include="voxeledit_mc.h" />
+    <ClInclude Include="voxeledit_terrain.h" />
+    <ClInclude Include="voxeledit_ui.h" />
+    <ClInclude Include="win.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ext\mathlib\ntypes.h~" />
+    <None Include="..\kernel\kernel.cl" />
+    <None Include="..\shader\editor\ssao\frag.txt" />
+    <None Include="..\shader\editor\ssao\vs.txt" />
+    <None Include="..\shader\editor\voxel\frag.txt" />
+    <None Include="..\shader\editor\voxel\vs.txt" />
+    <None Include="..\shader\raycast\fxaa\frag.txt" />
+    <None Include="..\shader\raycast\fxaa\vs.txt" />
+    <None Include="..\shader\raycast\merge_background\frag.txt" />
+    <None Include="..\shader\raycast\merge_background\vs.txt" />
+    <None Include="..\shader\terrain\frag.txt" />
+    <None Include="..\shader\terrain\vs.txt" />
+    <None Include="..\todo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\shader\mesh\frag.txt" />
+    <Text Include="..\shader\mesh\vs.txt" />
+    <Text Include="..\shader\raycast\ssao\frag.txt" />
+    <Text Include="..\shader\raycast\ssao\vs.txt" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{791ABC2E-5701-47FA-86CE-2DE6E3428DAB}</ProjectGuid>
+    <RootNamespace>project</RootNamespace>
+    <ProjectName>OutStar Client</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\bin32</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\bin64\tmp\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IntDir>..\bin32\tmp</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>..\bin64\tmp\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>..\bin32\project32D</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IntDir>$(SolutionDir)bin32\tmp</IntDir>
+    <TargetName>project32.exe</TargetName>
+    <OutDir>$(SolutionDir)bin32\tmp\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(SolutionDir)bin64\tmp</IntDir>
+    <OutDir>$(SolutionDir)bin64\tmp\</OutDir>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\ext;.\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OutputFile>..\bin32\project32D.exe</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\ext;.\;..\ext_compile</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\bin64\tmp\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\bin64\tmp\</AssemblerListingLocation>
+      <ObjectFileName>..\bin64\tmp\</ObjectFileName>
+      <XMLDocumentationFileName>..\bin64\tmp\</XMLDocumentationFileName>
+      <ProgramDataBaseFileName>..\bin64\tmp\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OutputFile>..\bin64\project64D.exe</OutputFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <BuildLog>
+      <Path>..\bin64\tmp\$(MSBuildProjectName).log</Path>
+    </BuildLog>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\ext;.\;..\ext_compile</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\lib32\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OutputFile>$(SolutionDir)bin32\project32.exe</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\ext;.\;..\ext_compile</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderOutputFile>..\bin64\tmp\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\bin64\tmp\</AssemblerListingLocation>
+      <ObjectFileName>..\bin64\tmp\</ObjectFileName>
+      <ProgramDataBaseFileName>..\bin64\tmp\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>..\bin64\tmp\</XMLDocumentationFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\lib64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OutputFile>..\bin64\$(ProjectName).exe</OutputFile>
+      <SubSystem>Console</SubSystem>
+      <ManifestFile>..\bin64\tmp\$(TargetName)$(TargetExt).intermediate.manifest</ManifestFile>
+      <ProgramDatabaseFile>..\bin64\tmp\$(TargetName).pdb</ProgramDatabaseFile>
+      <ProfileGuidedDatabase>..\bin64\tmp\$(TargetName).pgd</ProfileGuidedDatabase>
+    </Link>
+    <Bscmake>
+      <OutputFile>..\bin64\tmp\$(TargetName).bsc</OutputFile>
+    </Bscmake>
+    <Xdcmake>
+      <OutputFile>..\bin64\tmp\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>..\bin64\tmp\$(TargetExt).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <BuildLog>
+      <Path>$(SolutionDir)bin64\tmp\$(MSBuildProjectName).log</Path>
+    </BuildLog>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

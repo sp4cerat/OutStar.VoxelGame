@@ -1,0 +1,19 @@
+#version 330 core
+
+in  vec4 vertex0;
+in  vec4 vertex1;
+in  vec4 vertex2;
+in  vec4 vertex3;
+out vec4 vs_out0;
+out vec4 vs_out1;
+out vec4 vs_out2;
+out vec4 vs_out3;
+
+void main(void)
+{
+	vs_out0=vertex0;
+	vs_out1=vertex1;
+	vs_out2=vertex2;
+	vs_out3=vertex3;
+	gl_Position = vec4(1,1,1,1);
+}

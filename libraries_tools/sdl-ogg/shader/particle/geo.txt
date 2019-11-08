@@ -1,0 +1,54 @@
+#version 330 core
+
+layout(points, invocations = 1) in;
+layout(points, max_vertices = 16) out;
+
+in  vec4 vertex0[];
+in  vec4 vertex1[];
+in  vec4 vertex2[];
+in  vec4 vertex3[];
+
+in vec4 vs_out0[];
+in vec4 vs_out1[];
+in vec4 vs_out2[];
+in vec4 vs_out3[];
+out float geo_out;
+uniform mat4 projectionMatrix;
+uniform vec4 block_pos;
+uniform float scale;
+
+void main(void)
+{
+	for ( int i=0 ; i<4;i++)
+	{
+		vec4 plus;
+		if(i==0)plus=vs_out0[0];
+		if(i==1)plus=vs_out1[0];
+		if(i==2)plus=vs_out2[0];
+		if(i==3)plus=vs_out3[0];
+
+		geo_out=plus.w;
+		plus.w=0.0;
+		plus+=block_pos;	
+
+		plus=projectionMatrix*plus;
+
+		if (abs(plus.x/plus.w)<1.05)
+		if (abs(plus.y/plus.w)<1.05)
+		if (plus.z>0)
+		{
+			gl_Position = vec4(0, -scale, 0.0 , 0.0 )+plus;
+			EmitVertex();
+			EndPrimitive();
+			/*
+			gl_Position = vec4(-scale,scale, 0.0 , 0.0 )+plus;
+			EmitVertex();
+			gl_Position = vec4( scale,scale, 0.0 , 0.0 )+plus;
+			EmitVertex();
+			gl_Position = vec4(0, -scale, 0.0 , 0.0 )+plus;
+			EmitVertex();
+			EndPrimitive();
+			*/
+		}
+	}
+}

@@ -1,0 +1,130 @@
+#version 120
+uniform sampler2D tex_normalmap; 
+uniform sampler2D tex_rock_sand_grass; 
+uniform sampler2D tex_heightmap; 
+uniform vec4 scale;
+uniform vec4 sunlightvec;
+uniform float snowfall;
+
+varying vec3 vs_tex_coord;
+varying vec4 vs_pos;
+
+
+#define f_frac(_a_) (_a_-floor(_a_))
+
+vec4 bspline_2d_fp( sampler2D texin, vec2 vecin) 
+{
+	vec2 tsize = vec2(4096.0,4096.0);
+	vec2 one_tsize = vec2(1.0/tsize.x,1.0/tsize.y);
+	vec2 coord_grid = vecin*tsize - vec2(0.5,0.5);
+	vec2 fraction = f_frac(coord_grid);
+	vec2 one_frac = 1.0 - fraction;
+	vec2 one_frac2 = one_frac * one_frac;
+	vec2 fraction2 = fraction * fraction;
+	vec2 w0 = 1.0/6.0 * one_frac2 * one_frac;
+	vec2 w1 = 2.0/3.0 - 0.5 * fraction2 * (2.0-fraction);
+	vec2 w2 = 2.0/3.0 - 0.5 * one_frac2 * (2.0-one_frac);
+	vec2 w3 = 1.0/6.0 * fraction2 * fraction;
+	vec2 g0 = w0 + w1;
+	vec2 g1 = w2 + w3;
+	vec2 index = coord_grid-fraction;
+	vec2 h0 = ((w1 / g0) - 0.5 + index)*one_tsize;
+	vec2 h1 = ((w3 / g1) + 1.5 + index)*one_tsize;
+	// fetch the four linear interpolations
+	vec4 tex000 = texture2D(texin, vec2(h0.x, h0.y));
+	vec4 tex001 = texture2D(texin, vec2(h0.x, h1.y));
+	tex000 = mix(tex001, tex000, g0.y);
+	vec4 tex010 = texture2D(texin, vec2(h1.x, h0.y));
+	vec4 tex011 = texture2D(texin, vec2(h1.x, h1.y));
+	tex010 = mix(tex011, tex010, g0.y);	
+	return mix(tex010, tex000, g0.x);
+}
+
+void main(void)
+{
+	//gl_FragColor=texture2D(tex_rock_sand_grass ,vs_tex_coord.xy*512.0);//vec4(vs_tex_coord.xy,1.0,1.0);
+	
+	vec4 n;
+	if(scale.x<1.0/64.0)
+		n=bspline_2d_fp(tex_normalmap,vs_tex_coord.xy); // normal map
+	else
+		n=texture2D(tex_normalmap,vs_tex_coord.xy); // normal map
+
+	float path_weight=clamp(n.z*2.0-1.0,0.0,1.0) ;
+
+	float h=vs_tex_coord.z; // terrain height
+	float w4=1.0-clamp(vs_pos.z*32.0,0.0,1.0);
+
+	vec4 rock_sand_grass=texture2D(tex_rock_sand_grass  ,vs_tex_coord.xy*16.0);
+	
+	float road_weight=1.0;if(path_weight>0.01)road_weight=texture2D(tex_rock_sand_grass ,vs_tex_coord.xy*1024.0).w;
+
+	if(w4>0.01) // blend in detail for near
+	{
+		w4=min(0.5,w4);
+		vec4 detail=texture2D(tex_rock_sand_grass ,vs_tex_coord.xy*32.0);		
+		rock_sand_grass=mix(rock_sand_grass,detail,w4);
+
+		float w5=1.0-clamp(vs_pos.z*128.0,0.0,1.0);
+		if(w5>0.01) // blend in detail for near
+		{
+			w5=min(0.5,w5);
+			vec4 detail=texture2D(tex_rock_sand_grass ,vs_tex_coord.xy*256.0);
+			rock_sand_grass=mix(rock_sand_grass,detail,w5);
+			//road_weight=detail.w;
+		}
+	}
+
+	//normal
+	n.xy+=(texture2D(tex_normalmap,vs_tex_coord.xy*64.0).xy-0.5)*n.w;
+	n.xy =(n.xy-0.5 )*(128.0/32.0);
+	n.xyz=normalize(cross( vec3(1.0,0.0,n.x) , vec3(0.0,1.0,n.y) ));
+
+	//mix
+	float w1=clamp((n.z*0.5-h)*2.0,0.0,1.0);				// grass-sand
+	float w2=clamp((n.z*0.5-h)*8.0,0.0,1.0);				// sand-rock
+	//float w3=clamp((n.z*1.0-0.40-clamp(1.0-(h+0.05)*snowfall*5.0,0.0,1.0))*32.0,0.0,1.0);		// rock-snow snowy
+	float w3=clamp((n.z-0.5-clamp((snowfall-h)*3.0,0,0.5))*32.0,0.0,1.0);		// rock-snow snowy
+//
+//	vec4 c1=rock_sand_grass.x*vec4(0.4,0.2,0.0,1);		// rock
+/*
+	vec4 c1=rock_sand_grass.x*vec4(0.6,0.6,0.6,1);		// rock
+	vec4 c2=rock_sand_grass.y*vec4(0.6,0.6,0.1,0);	// sand
+	vec4 c3=rock_sand_grass.z*vec4(0.1,0.8,0.1,0);	// grass
+*/
+
+	vec4 c1=rock_sand_grass.x*vec4(1,1,1,1);		// rock
+	vec4 c2=rock_sand_grass.y*vec4(0.7,0.4,0.0,0);	// sand
+	vec4 c3=rock_sand_grass.z*vec4(0.4,0.6,0.2,0);	// grass
+
+	vec4 c4=vec4(1.1,1.1,1.1,0.0);					// snow
+	//vec4 c5=road_weight*vec4(0.4,0.4,0.4,0.0);// road
+	
+	vec4 col=c1;
+	c2 =mix(c2,c3 ,w1);	
+	col=mix(col,c2,w2);	
+	col=mix(col,c4,w3);	
+	//col=mix(col,c5,path_weight);	
+
+	float diffuse=dot( n.xyz, sunlightvec.xzy );//,0.0,1.0);
+
+	vec4 diffuse3;//=vec4(abs(diffuse),abs(diffuse),abs(diffuse),abs(diffuse)); 
+	diffuse3.z=clamp(diffuse,0.0,1.0);diffuse3.z=diffuse3.y=diffuse3.z*diffuse3.z;
+	diffuse3.x=(diffuse > 0) ? diffuse3.z:diffuse*diffuse*2.0;
+
+//	float light=clamp(dot( n.xyz, normalize(vec3(-1.0,2.0,3.0)) ),0.0,1.0);
+	col=col*diffuse3;
+	
+//	gl_FragColor=mix( col, vec4(0.4,0.4,0.4,1),clamp(sqrt(vs_pos.z)*1.4,0,1.0));
+
+	// white/blue
+	gl_FragColor=col;//mix( col, vec4(201.0/255.0,224.0/255.0,245.0/255.0,1),clamp(vs_pos.z*1.4-0.2,0,0.8))+vec4(0,0,0,1);
+	gl_FragColor.w=1.0;
+
+
+	// light red/yellow
+	//gl_FragColor=mix( col, vec4(0.9,0.7,0.3,1.0),clamp(vs_pos.z*2.4-0.2,0.0,1.0));
+
+//	gl_FragColor=mix( col, vec4(0.0,0.0,0.0,1.0),clamp(vs_pos.z*1.4-0.2,0,0.8));
+	
+}

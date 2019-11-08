@@ -1,0 +1,40 @@
+﻿  XzIn.c
+  XzEnc.c
+  XzDec.c
+  XzCrc64.c
+  Xz.c
+  Threads.c
+  Sha256.c
+  Ppmd7Enc.c
+  Ppmd7Dec.c
+  Ppmd7.c
+  MtCoder.c
+  LzmaLib.c
+  LzmaEnc.c
+  LzmaDec.c
+  Lzma86Enc.c
+  Lzma86Dec.c
+  Lzma2Enc.c
+  Lzma2Dec.c
+  LzFindMt.c
+  LzFind.c
+  Generating Code...
+  Compiling...
+  Delta.c
+  CpuArch.c
+  BraIA64.c
+  Bra86.c
+  Bra.c
+  Bcj2.c
+  Alloc.c
+  7zStream.c
+  7zIn.c
+  7zFile.c
+  7zDec.c
+  7zCrcOpt.c
+  7zCrc.c
+  7zBuf2.c
+  7zBuf.c
+  7zAlloc.c
+  Generating Code...
+LINK : fatal error LNK1104: cannot open file 'SDL.lib'

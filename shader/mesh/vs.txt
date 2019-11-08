@@ -1,0 +1,49 @@
+#version 110 
+
+varying vec3 vertex;	// model space vertex
+varying vec3 tex_uv;	// texture coord
+varying vec3 normal;	// model space normal vector
+varying vec3 tex_tan;	// model space tangent vector
+varying vec3 tex_cotan;	// model space cotangent vector
+
+uniform mat4 bones[50];
+uniform int  use_skinning;
+
+void main(void)
+{
+	vec4 p=gl_Vertex.xyzw; p.w=1.0; // input vertex
+
+	mat4 mfinal = gl_ModelViewMatrix ;
+
+	// skinning
+	if(use_skinning==1)
+	{
+		vec3 weights= gl_Color.xyz;
+		vec3 boneid = gl_Vertex.w * vec3( 1.0/128.0 , 1.0 , 128.0 );
+		boneid = (boneid - floor(boneid))*128.0;
+
+		mat4 mskin  =	bones[int(boneid.x)]*weights.x+
+						bones[int(boneid.y)]*weights.y+
+						bones[int(boneid.z)]*weights.z;
+
+		mfinal = mfinal * mskin;
+	}
+
+	// texture coordinate
+	tex_uv		= gl_MultiTexCoord0.xyz;
+
+	// Unpack Tangent Space from one float
+	float w		= sign(gl_MultiTexCoord0.z); // tangent handedness	
+	tex_tan    	= w*gl_MultiTexCoord0.z*vec3( 1.0/256.0 , 1.0 , 256.0 ); 
+	tex_tan		= tex_tan-floor(tex_tan);tex_tan=(tex_tan-vec3(0.5,0.5,0.5))*2.0;
+	tex_cotan  	= w*cross(gl_Normal.xyz,tex_tan.xyz);
+
+	// to worldspace
+	normal		=  normalize((mfinal * vec4(gl_Normal.xyz,0.0)).xyz);
+	tex_tan    	=  normalize((mfinal * vec4(tex_tan.xyz,0.0)).xyz);
+	tex_cotan  	=  normalize((mfinal * vec4(tex_cotan.xyz,0.0)).xyz);
+	vertex		= (mfinal * p).xyz;
+
+	// to camera space
+    gl_Position	= gl_ProjectionMatrix * vec4(vertex,1.0);
+}

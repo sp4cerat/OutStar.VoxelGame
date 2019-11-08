@@ -1,0 +1,23 @@
+#version 410 core
+
+layout(triangles, invocations = 1) in;
+//layout(line_strip, max_vertices = 4) out;
+layout(triangle_strip, max_vertices = 4) out;
+
+in  vec3 tex_uv_tes[];
+out vec3 tex_uv;
+
+void main(void)
+{
+	for(int i = 0; i < gl_in.length(); ++i)
+	{
+		tex_uv = tex_uv_tes[i];
+		gl_Position = gl_in[i].gl_Position;
+		EmitVertex();
+	}
+//	tex_uv = tex_uv_tes[0];
+//	gl_Position = gl_in[0].gl_Position;
+//	EmitVertex();
+	
+	EndPrimitive();
+}

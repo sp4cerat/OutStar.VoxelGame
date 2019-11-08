@@ -1,0 +1,45 @@
+# depslib dependency file v1.0
+1325883833 source:/home/jos/Dropbox/Jos/speq/Tutorials/expression_parser_cpp/cpp source/error.cpp
+	"error.h"
+
+1325883853 /home/jos/Dropbox/Jos/speq/Tutorials/expression_parser_cpp/cpp source/error.h
+	<cstdio>
+	<cstdarg>
+	<cstring>
+
+1325883914 source:/home/jos/Dropbox/Jos/speq/Tutorials/expression_parser_cpp/cpp source/functions.cpp
+	"error.h"
+
+1325883276 source:/home/jos/Dropbox/Jos/speq/Tutorials/expression_parser_cpp/cpp source/main.cpp
+	<cstdlib>
+	<cstdio>
+	"parser.h"
+
+1325883763 /home/jos/Dropbox/Jos/speq/Tutorials/expression_parser_cpp/cpp source/parser.h
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<cctype>
+	<cmath>
+	"constants.h"
+	"error.h"
+	"functions.h"
+	"variablelist.h"
+
+1325883946 /home/jos/Dropbox/Jos/speq/Tutorials/expression_parser_cpp/cpp source/constants.h
+
+1325883898 /home/jos/Dropbox/Jos/speq/Tutorials/expression_parser_cpp/cpp source/functions.h
+
+1325883712 /home/jos/Dropbox/Jos/speq/Tutorials/expression_parser_cpp/cpp source/variablelist.h
+	<cstdio>
+	<cctype>
+	<cstring>
+	<vector>
+	"constants.h"
+
+1325883996 source:/home/jos/Dropbox/Jos/speq/Tutorials/expression_parser_cpp/cpp source/parser.cpp
+	"parser.h"
+
+1325883489 source:/home/jos/Dropbox/Jos/speq/Tutorials/expression_parser_cpp/cpp source/variablelist.cpp
+	"variablelist.h"
+

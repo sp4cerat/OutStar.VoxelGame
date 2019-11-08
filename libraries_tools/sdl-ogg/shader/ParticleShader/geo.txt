@@ -1,0 +1,27 @@
+#version 410 core
+
+layout(points, invocations = 1) in;
+layout(line_strip, max_vertices = 4) out;
+
+in vec4 color_vs[];
+out vec4 color_gs;
+
+uniform mat4 projectionMatrix;
+
+void main(void)
+{
+	color_gs = color_vs[0];
+	gl_Position = projectionMatrix*(gl_in[0].gl_Position+vec4(-0.1 ,-0.1 , 0.0 , 0.0 ));
+	EmitVertex();
+	color_gs = color_vs[0];
+	gl_Position = projectionMatrix*(gl_in[0].gl_Position+vec4( 0.1 ,-0.1 , 0.0 , 0.0 ));
+	EmitVertex();
+	color_gs = color_vs[0];
+	gl_Position = projectionMatrix*(gl_in[0].gl_Position+vec4(-0.1 , 0.1 , 0.0 , 0.0 ));
+	EmitVertex();
+	color_gs = color_vs[0];
+	gl_Position = projectionMatrix*(gl_in[0].gl_Position+vec4( 0.1 , 0.1 , 0.0 , 0.0 ));
+	EmitVertex();
+	
+	EndPrimitive();
+}

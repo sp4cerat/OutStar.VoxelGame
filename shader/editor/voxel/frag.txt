@@ -1,0 +1,43 @@
+//uniform sampler2D texDiffuse; 
+//uniform sampler2D texAmbient; 
+
+//uniform vec3 camPos;
+//uniform vec3 lightPos;
+//uniform vec4 ambient;
+//uniform vec4 diffuse;
+#version 130
+
+uniform vec4 color_effect;
+
+varying vec3 normal;
+varying vec3 vertex;
+varying vec4 color;
+
+void main(void)
+{
+	float spec  =float(int(color.w*256.0)&3)/3.0;spec*=spec;//float(int(color.w*255.0)&3)/3;
+	int effect_index = int(color.w*256.0)>>4;
+
+	// effects
+	float effect_power=1.0;
+	if(effect_index==1) effect_power=color_effect.x;
+	if(effect_index==2) effect_power=1.0-color_effect.x;
+	if(effect_index==3) effect_power=color_effect.y;
+	if(effect_index==4) effect_power=color_effect.z;
+	if(effect_index==5) effect_power=color_effect.w;
+
+	vec3 lightPos=vec3(0,400,400);
+	vec3 camPos=vec3(0,0,0);
+    vec3 lightVec =  normalize(lightPos-vertex) ;
+    vec3 camVec   =  normalize(camPos-vertex) ;
+    
+    float l = dot ( lightVec , normal );l=l*l;//clamp ( dot ( lightVec , normal ) ,0.0,1.0 );
+    vec3  r = reflect ( -camVec, normal );
+    float m = clamp ( dot ( r , lightVec ) ,0.0,1.0);
+    float q = m*m; q=q*q;
+
+	l*=effect_power;
+	q*=effect_power;
+
+    gl_FragColor = color*l+spec*q;//normal.z + b*b*b;// 0.001*(color * diffuse * (normal.z) + ambient+ specular*dot(normal,normalize(vertex)));
+}

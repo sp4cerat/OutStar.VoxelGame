@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="constants.h" open="0" top="0" tabpos="0">
+		<Cursor position="250" topLine="0" />
+	</File>
+	<File name="error.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="error.h" open="0" top="0" tabpos="6">
+		<Cursor position="20" topLine="0" />
+	</File>
+	<File name="functions.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="26" topLine="0" />
+	</File>
+	<File name="functions.h" open="0" top="0" tabpos="0">
+		<Cursor position="855" topLine="3" />
+	</File>
+	<File name="main.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="parser.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="977" topLine="1" />
+	</File>
+	<File name="parser.h" open="0" top="0" tabpos="0">
+		<Cursor position="19" topLine="0" />
+	</File>
+	<File name="variablelist.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="1030" topLine="22" />
+	</File>
+	<File name="variablelist.h" open="0" top="0" tabpos="3">
+		<Cursor position="1590" topLine="41" />
+	</File>
+</CodeBlocks_layout_file>

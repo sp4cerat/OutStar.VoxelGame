@@ -1,0 +1,52 @@
+#version 330 core
+
+layout(points, invocations = 1) in;
+layout(triangle_strip, max_vertices = 16) out;
+
+in  ivec4 vs_out[];
+out float geo_out;
+uniform mat4 projectionMatrix;
+
+void main(void)
+{
+	for ( int i=0 ; i<4;i++)
+	{
+		int xyzc;
+		if(i==0)xyzc=vs_out[0].x;
+		if(i==1)xyzc=vs_out[0].y;
+		if(i==2)xyzc=vs_out[0].z;
+		if(i==3)xyzc=vs_out[0].w;
+
+		int ipx=  xyzc      & 255;
+		int ipy= (xyzc>>8 ) & 255;
+		int ipz= (xyzc>>16) & 255;
+		int ipc= (xyzc>>24) & 255;
+		float px=float(ipx)*0.1;
+		float py=float(ipy)*0.1;
+		float pz=float(ipz)*0.1;
+		float pc=float(ipc);
+		
+		vec4 plus=vec4( px,py,pz,1.0);
+
+		geo_out=pc;
+
+		plus=projectionMatrix*plus;
+
+		if (plus.z>0)
+		if (plus.x/plus.w<1)
+		if (plus.x/plus.w>-1)
+		if (plus.y/plus.w<1)
+		if (plus.y/plus.w>-1)
+		{
+			gl_Position = vec4(-0.1,-0.1, 0.0 , 0.0 )+plus;
+			EmitVertex();
+			gl_Position = vec4( 0.1,-0.1, 0.0 , 0.0 )+plus;
+			EmitVertex();
+			gl_Position = vec4(-0.1, 0.1, 0.0 , 0.0 )+plus;
+			EmitVertex();
+			gl_Position = vec4( 0.1, 0.1, 0.0 , 0.0 )+plus;
+			EmitVertex();	
+			EndPrimitive();
+		}
+	}
+}

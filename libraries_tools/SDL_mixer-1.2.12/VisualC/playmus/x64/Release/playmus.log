@@ -1,0 +1,4 @@
+﻿  playmus.c
+..\..\playmus.c(73): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(304) : see declaration of 'scanf'
+LINK : fatal error LNK1181: cannot open input file 'SDL.lib'

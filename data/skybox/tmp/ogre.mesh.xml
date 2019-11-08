@@ -1,0 +1,229 @@
+<mesh>
+    <submeshes>
+        <submesh material="skybox_cube3_auv1" usesharedvertices="false" use32bitindexes="false" operationtype="triangle_list">
+            <faces count="12">
+                <face v1="0" v2="1" v3="2" />
+                <face v1="3" v2="4" v3="5" />
+                <face v1="2" v2="1" v3="6" />
+                <face v1="7" v2="8" v3="9" />
+                <face v1="10" v2="11" v3="12" />
+                <face v1="13" v2="11" v3="10" />
+                <face v1="5" v2="4" v3="14" />
+                <face v1="15" v2="16" v3="17" />
+                <face v1="18" v2="19" v3="20" />
+                <face v1="21" v2="8" v3="7" />
+                <face v1="22" v2="19" v3="18" />
+                <face v1="23" v2="16" v3="15" />
+            </faces>
+            <geometry vertexcount="24">
+                <vertexbuffer positions="true" normals="true" texture_coord_dimensions_0="2" tangents="true" tangent_dimensions="4" texture_coords="1">
+                    <vertex>
+                        <position x="-1" y="-1" z="1" />
+                        <normal x="0" y="0" z="1" />
+                        <texcoord u="0.498902" v="0.666279" />
+                        <tangent x="1" y="-0.0009629" z="0" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="1" y="-1" z="1" />
+                        <normal x="0" y="0" z="1" />
+                        <texcoord u="0.748386" v="0.665958" />
+                        <tangent x="1" y="-0.000842946" z="0" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="-1" y="1" z="1" />
+                        <normal x="0" y="0" z="1" />
+                        <texcoord u="0.499611" v="0.333003" />
+                        <tangent x="1" y="-0.000782751" z="0" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="-1" y="-1" z="1" />
+                        <normal x="0" y="-1" z="0" />
+                        <texcoord u="0.498886" v="0.666219" />
+                        <tangent x="-0.00181467" y="0" z="0.999998" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="-1" y="-1" z="-1" />
+                        <normal x="0" y="-1" z="0" />
+                        <texcoord u="0.248637" v="0.665614" />
+                        <tangent x="-0.00129535" y="0" z="0.999999" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="1" y="-1" z="1" />
+                        <normal x="0" y="-1" z="0" />
+                        <texcoord u="0.499756" v="0.999592" />
+                        <tangent x="-0.00103653" y="0" z="1" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="1" y="1" z="1" />
+                        <normal x="0" y="0" z="1" />
+                        <texcoord u="0.747667" v="0.332783" />
+                        <tangent x="1" y="-0.000661925" z="0" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="-1" y="1" z="1" />
+                        <normal x="-1" y="0" z="0" />
+                        <texcoord u="0.499671" v="0.333001" />
+                        <tangent x="0" y="0.00136278" z="0.999999" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="-1" y="-1" z="-1" />
+                        <normal x="-1" y="0" z="0" />
+                        <texcoord u="0.248627" v="0.665636" />
+                        <tangent x="0" y="0.00116444" z="0.999999" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="-1" y="-1" z="1" />
+                        <normal x="-1" y="0" z="0" />
+                        <texcoord u="0.49893" v="0.666222" />
+                        <tangent x="0" y="0.00175786" z="0.999998" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="-1" y="1" z="1" />
+                        <normal x="0" y="1" z="0" />
+                        <texcoord u="0.49969" v="0.332965" />
+                        <tangent x="0.000397263" y="0" z="1" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="1" y="1" z="-1" />
+                        <normal x="0" y="1" z="0" />
+                        <texcoord u="0.251574" v="0.00170499" />
+                        <tangent x="0.000265178" y="0" z="1" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="-1" y="1" z="-1" />
+                        <normal x="0" y="1" z="0" />
+                        <texcoord u="0.250792" v="0.332746" />
+                        <tangent x="0.000660431" y="0" z="1" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="1" y="1" z="1" />
+                        <normal x="0" y="1" z="0" />
+                        <texcoord u="0.498737" v="0.00170499" />
+                        <tangent x="0" y="0" z="1" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="1" y="-1" z="-1" />
+                        <normal x="0" y="-1" z="0" />
+                        <texcoord u="0.248488" v="0.999418" />
+                        <tangent x="-0.000520544" y="0" z="1" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="1" y="-1" z="1" />
+                        <normal x="1" y="0" z="0" />
+                        <texcoord u="0.748556" v="0.665787" />
+                        <tangent x="0" y="0.000255292" z="-1" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="1" y="1" z="-1" />
+                        <normal x="1" y="0" z="0" />
+                        <texcoord u="0.999238" v="0.332909" />
+                        <tangent x="0" y="0.000213979" z="-1" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="1" y="1" z="1" />
+                        <normal x="1" y="0" z="0" />
+                        <texcoord u="0.747661" v="0.332797" />
+                        <tangent x="0" y="0.000337765" z="-1" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="-1" y="-1" z="-1" />
+                        <normal x="0" y="0" z="-1" />
+                        <texcoord u="0.248654" v="0.665665" />
+                        <tangent x="-1" y="0.000269566" z="0" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="1" y="1" z="-1" />
+                        <normal x="0" y="0" z="-1" />
+                        <texcoord u="0.000505333" v="0.332908" />
+                        <tangent x="-1" y="-0.000101623" z="0" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="1" y="-1" z="-1" />
+                        <normal x="0" y="0" z="-1" />
+                        <texcoord u="0" v="0.665328" />
+                        <tangent x="-1" y="0.00101573" z="0" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="-1" y="1" z="-1" />
+                        <normal x="-1" y="0" z="0" />
+                        <texcoord u="0.250813" v="0.332746" />
+                        <tangent x="0" y="0.000766128" z="1" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="-1" y="1" z="-1" />
+                        <normal x="0" y="0" z="-1" />
+                        <texcoord u="0.250812" v="0.332629" />
+                        <tangent x="-1" y="-0.000840243" z="0" w="1" />
+                    </vertex>
+                    <vertex>
+                        <position x="1" y="-1" z="-1" />
+                        <normal x="1" y="0" z="0" />
+                        <texcoord u="0.999402" v="0.665831" />
+                        <tangent x="0" y="0.000131197" z="-1" w="1" />
+                    </vertex>
+                </vertexbuffer>
+            </geometry>
+        </submesh>
+    </submeshes>
+    <levelofdetail strategy="Distance" numlevels="6" manual="false">
+        <lodgenerated value="6.25e+010">
+            <lodfacelist submeshindex="0" numfaces="10">
+                <face v1="2" v2="1" v3="6" />
+                <face v1="7" v2="8" v3="5" />
+                <face v1="10" v2="11" v3="12" />
+                <face v1="13" v2="11" v3="10" />
+                <face v1="5" v2="4" v3="14" />
+                <face v1="15" v2="16" v3="17" />
+                <face v1="18" v2="19" v3="20" />
+                <face v1="21" v2="8" v3="7" />
+                <face v1="22" v2="19" v3="18" />
+                <face v1="23" v2="16" v3="15" />
+            </lodfacelist>
+        </lodgenerated>
+        <lodgenerated value="2.5e+011">
+            <lodfacelist submeshindex="0" numfaces="8">
+                <face v1="10" v2="11" v3="12" />
+                <face v1="13" v2="11" v3="10" />
+                <face v1="7" v2="4" v3="14" />
+                <face v1="7" v2="16" v3="17" />
+                <face v1="18" v2="19" v3="20" />
+                <face v1="21" v2="8" v3="7" />
+                <face v1="22" v2="19" v3="18" />
+                <face v1="23" v2="16" v3="7" />
+            </lodfacelist>
+        </lodgenerated>
+        <lodgenerated value="5.625e+011">
+            <lodfacelist submeshindex="0" numfaces="6">
+                <face v1="10" v2="11" v3="12" />
+                <face v1="7" v2="4" v3="14" />
+                <face v1="18" v2="19" v3="20" />
+                <face v1="21" v2="8" v3="7" />
+                <face v1="22" v2="19" v3="18" />
+                <face v1="23" v2="16" v3="7" />
+            </lodfacelist>
+        </lodgenerated>
+        <lodgenerated value="1e+012">
+            <lodfacelist submeshindex="0" numfaces="6">
+                <face v1="10" v2="11" v3="12" />
+                <face v1="7" v2="4" v3="14" />
+                <face v1="18" v2="19" v3="20" />
+                <face v1="21" v2="8" v3="7" />
+                <face v1="22" v2="19" v3="18" />
+                <face v1="23" v2="16" v3="7" />
+            </lodfacelist>
+        </lodgenerated>
+        <lodgenerated value="1.5625e+012">
+            <lodfacelist submeshindex="0" numfaces="6">
+                <face v1="10" v2="11" v3="12" />
+                <face v1="7" v2="4" v3="14" />
+                <face v1="18" v2="19" v3="20" />
+                <face v1="21" v2="8" v3="7" />
+                <face v1="22" v2="19" v3="18" />
+                <face v1="23" v2="16" v3="7" />
+            </lodfacelist>
+        </lodgenerated>
+    </levelofdetail>
+    <submeshnames>
+        <submeshname name="skybox:cube3_cube3_auvShape" index="0" />
+    </submeshnames>
+</mesh>

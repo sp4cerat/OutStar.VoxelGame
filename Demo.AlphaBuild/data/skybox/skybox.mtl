@@ -1,0 +1,9 @@
+newmtl skybox:cube3_auv
+illum 4
+Kd 0.38 0.38 0.38
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Ka 2.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 92.16

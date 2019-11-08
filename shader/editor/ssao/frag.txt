@@ -1,0 +1,46 @@
+//#version 410 core
+//#extension GL_ARB_texture_rectangle : enable
+//layout(location = 0, index = 0) out vec4 fragColor;
+//in vec4 vs_texcoord;
+#version 120
+
+uniform sampler2D tex_col;
+uniform sampler2D tex_depth;
+varying vec2 vs_texcoord;
+
+float get_depth(vec2 a)
+{
+  float b=(1.0-10.0*(1.0-texture2D(tex_depth, a).x));
+  return b;
+}
+
+void main(void)
+{
+
+	float z0= get_depth(vs_texcoord);
+	float a = vs_texcoord.y*115.356264647+vs_texcoord.x*675.34647;
+	float addx=(a-float(int(a)))*3.1415*2.0;		
+	float radius = 1.0, shadow=0.0,light=0.0 ;
+
+	for (a=0;a<1.0;a+=1.0/20.0)
+	{
+		float factor=a;
+		vec2  delta_xy;
+		delta_xy.x = sin(a*30+addx)*factor*radius*0.02;
+		delta_xy.y = cos(a*30+addx)*factor*radius*0.02;
+		float  z=z0-get_depth(vs_texcoord + delta_xy);
+		if(z>0)//abs(z)<0.02*z0+0.002) 
+		shadow+=z*0.125*(2.0-factor);
+		else
+		if(a<0.5)light-=z;//*4.0;//*(1.0-factor);
+	}
+	light=sqrt(light);
+
+	shadow = max(min(0.8-shadow*5.0,1.0),0.0);//max(min(1.0-bright*5.0,1.0),0.0);
+
+	light  = max(min(1.0-light*8.0,2.0),0.0);
+	
+	gl_FragColor = texture2D(tex_col, vs_texcoord)*(shadow+light*0.25);
+		//10.0*(1.0-texture2D(tex_depth, vs_texcoord));//
+	gl_FragColor.a=1.0;
+}

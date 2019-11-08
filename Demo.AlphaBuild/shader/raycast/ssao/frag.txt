@@ -1,0 +1,53 @@
+#version 150
+
+uniform sampler2D cTex; 
+uniform sampler2D zTex;
+
+varying vec2 tex_uv;
+
+void main( void ) 
+{
+	vec2 tex0 = tex_uv.xy;
+	float  z0   = texture2D(zTex, tex0).x;
+	float bright= 0.0;
+
+	float rndx = 2345.2345;
+	float rndy = 1235.7126;
+	float rndz = 7831.3452;
+	float addx = (tex0.y*115.3564647+tex0.x*215.34647)*3.1415*2.0;addx=addx-floor(addx);
+	float radius = 0.50;//0.011/(z0+0.001);
+
+	for (float a=0;a<1.0;a+=1.0/20.0)
+	{
+		float factor=a;
+		rndx =  sin(a*17+addx)*factor*radius*0.1;
+		rndy =  cos(a*17+addx)*factor*radius*0.1;
+		vec2 delta_xy=vec2( rndx,rndy ) ;
+		float  z=z0-texture2D(zTex, tex0 + delta_xy).x;//z=0.001/(z+0.001);//z*=200000;
+		if(z>0)if(z<0.007)//;//*z0+0.002) 
+		bright+=z*(1.0-factor);
+	}
+
+	bright = sqrt(clamp(bright*25.0,0,0.9));//max(min(1.0-bright,1.0),bright);
+
+	vec4 bgcol = vec4(tex0.y,tex0.y*0.8+0.2,0.5+tex0.y*0.5,0);
+
+	//z0=z0*2.0-1.0;
+	
+	vec4 color=texture2D(cTex, tex0);
+
+	//if(tex0.x>0.25)	color=vec4(1,1,1,0);
+
+	gl_FragColor = mix ( color,vec4(0,0,0,0),bright);//*0.25+vec4(z0,z0,z0,1.0);
+	
+	//mix( 
+	 // max(vec4(0,0,0,0),(texture2D(cTex, tex0)*1.0+0.0)-(1.0-bright)) ,
+	  ///bgcol,bright);
+	  //max(0.0,min(1.0, 1.0-150.0/(100+z0*1000))));
+	  
+	//if ( z0 > 0.85 ) gl_FragColor = bgcol;
+
+	gl_FragColor.w=1.0;
+}
+
+
